@@ -529,7 +529,7 @@ class BaseMLEngineExec:
             'pred_format': pred_format,
             'predict_params': {} if params is None else params
         }
-
+        df['text'] = ' '.join(df['text'].astype(str))
         try:
             task = process_cache.apply_async(
                 handler=self.handler_class,
